@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="hostelStyle.css">
+</head>
+<body>
+    <!-- header with logo -->
+    <header class="p-3 text" style="background-color:rgb(73, 73, 244);">
+        <div class="container">
+          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+              <img class="logo" width="60" height="60" src="https://thumbs.dreamstime.com/b/hostel-logo-hotel-logo-travel-rest-place-vector-illustration-97549145.jpg" alt="Image description">
+            </a>
+    
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+            </ul>
+    
+            <div class="text-end">
+              <a href="log_sign.html"><button type="button" class="btn btn-outline-light me-2">Login</button></a>
+              <a href="log_sign.html"><button type="button" class="btn btn-warning">Sign-up</button></a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Navbar with find PG, find hostel -->
+      <header class="d-flex justify-content-center py-3">
+        <ul class="nav nav-pills">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="findPG.html" class="nav-link">Find PG</a></li>
+          <li class="nav-item"><a href="findHostel.html" class="nav-link">Find Hostel</a></li>
+          <li class="nav-item"><a href="index.html#contactus" class="nav-link">Contact us</a></li>
+        </ul>
+      </header>
+
+    <form>
+        <label for="state" name="state">State</label>
+        <select id="state" onchange="filterCities()">
+            <option class="state0" value="" default>Select State</option>
+            <option class="state1" value="gujarat">Gujarat</option>
+            <option class="state2" value="maharashtra">Maharashtra</option>
+            <option class="state3" value="madhyapradesh">Madhya Pradesh</option>
+            <option class="state4" value="rajasthan">Rajasthan</option>
+        </select>
+        <label for="city" name="city">City</label>
+        <select id="city" onchange="filterAreas()">
+            <option class="city0" value="" default>Select City</option>
+            <option class="city1" value="ahmedabad" data-state="gujarat">Ahmedabad</option>
+            <option class="city2" value="indore" data-state="madhyapradesh">Indore</option>
+            <option class="city3" value="kota" data-state="rajasthan">Kota</option>
+            <option class="city4" value="gandhinagar" data-state="gujarat">Gandhinagar</option>
+            <option class="city5" value="mumbai" data-state="maharashtra">Mumbai</option>
+            <option class="city6" value="pune" data-state="maharashtra">Pune</option>
+            <option class="city7" value="bandra" data-state="maharashtra">Bandra</option>
+            <option class="city8" value="surat" data-state="gujarat">Surat</option>
+        </select>
+        <label for="area" name="area">Area</label>
+        <select class="SelectArea" id="area">
+            <option class="area0" value="" selected>Select Area</option>
+            <option class="area1" value="Bopal" data-city="ahmedabad">Bopal</option>
+            <option class="area2" value="Raysan" data-city="gandhinagar">Raysan</option>
+            <option class="area3" value="Science city" data-city="ahmedabad">Science city</option>
+            <option class="area4" value="Palasia" data-city="indore">Palasia</option>
+            <option class="area5" value="Bandra" data-city="mumbai">Bandra</option>
+            <option class="area6" value="Kalyani Nagar" data-city="indore">Kalyani Nagar</option>
+            <option class="area7" value="Borkhera" data-city="kota">Borkhera</option>
+            <option class="area8" value="Maninagar" data-city="ahmedabad">Maninagar</option>
+        </select>
+        <button type="button" id="searchbtn">Search hostel</button>
+        <button type="button" id="filterbtn">Filter hostel</button>
+        <div id="CommonHostelList">
+         <div id="HostelList">
+            <div id="DarshHostel">
+                <img src="Darsh1.jpg" style="width: 360px; height: 300px;"><br><br>
+                <button type="button" id="Darshbtn">Darsh Hostel</button>
+                <div id="DarshDetails">
+                    <h1>These are details of Darsh Hostel</h1>
+                    <img class="Darsh1" src="Darsh1.jpg">
+                    <img class="Darsh1" src="Darsh2.jpg">
+                    <img class="Darsh1" src="Darsh3.jpg">
+                    <h3>Available for: Boys,Girls</h3>
+                    <h3>Address: PDPU Rd, nr. Pdpu High Rise Hostel, opp. International Automobile Center of Excellence, Raysan, Gujarat 382007</h3>
+                    <h3>Price: Rs.7000/- per month</h3>
+                    <p>
+                    <i class="bi bi-wifi" style="font-size: 1.2em; color: #007bff;"></i> Wi-Fi &nbsp;
+                    <i class="bi bi-snow" style="font-size: 1.2em; color: #007bff;"></i> AC &nbsp;
+                    <i class="bi bi-cup-straw" style="font-size: 1.2em; color: #007bff;"></i> Food
+                    </p>
+                    <button type="button" class="interested_button" onclick="showInterested('Darsh')">Interested</button>
+                    <button type="button" class="register_button" onclick="book_room()">Register</button>
+                    <div class="interested_list" id="DarshInterested" style="display:none; background-color: white; margin:10px; padding:10px;">
+                        <h4>Students Interested:</h4>
+                        <ul>
+                            <li>Name: Niya Patel, Username: Niyapatel, Phone: +918585858585</li>
+                            <li>Name: Keni Tandel, Username: Kenitandel, Phone: +919292929292</li>
+                            <li>Name: Honey Patel, Username: Honeypatel, Phone: +914024024024</li>
+                            <li>Name: Keyur Patel, Username: Keyurpatel, Phone: +914044524024</li>
+                        </ul>
+                    </div>
+                </div>
+                <h3>Location: Raysan, Gandhinagar</h3><br>
+            </div>
+            <div id="JMDHostel">
+                <img src="JMD1.jpg" style="width: 360px; height: 300px;"><br><br>
+                <button type="button" id="JMDbtn">JMD Hostel</button>
+                <div id="JMDDetails">
+                    <h1>These are details of JMD Hostel</h1>
+                    <img class="JMD1" src="JMD1.jpg">
+                    <img class="JMD1" src="JMD2.jpg">
+                    <img class="JMD1" src="JMD3.jpg">
+                    <h3>Available for: Girls</h3>
+                    <h3>Address: PDPU High Rise Hostel Rd, Raysan, Gujarat 382421</h3>
+                    <h3>Price: Rs.5000/- per month</h3>
+                    <p>
+                        <i class="bi bi-snow" style="font-size: 1.2em; color: #007bff;"></i> AC &nbsp;
+                        <i class="bi bi-cup-straw" style="font-size: 1.2em; color: #007bff;"></i> Food
+                    </p>
+                    <button type="button" class="interested_button" onclick="showInterested('JMD')">Interested</button>
+                    <button type="button" class="register_button" onclick="book_room()">Register</button>
+                    <div class="interested_list" id="JMDInterested" style="display:none;background-color: white; margin:10px; padding:10px;">
+                        <h4>Students Interested:</h4>
+                        <ul>
+                            <li>Name: Diya Patel, Username: Diyapatel, Phone: +918768768768</li>
+                            <li>Name: Priya Tandel, Username: Priyatandel, Phone: +917676767676</li>
+                            <li>Name: Honey Shah, Username: Honeyshah, Phone: +913434343434</li>
+                        </ul>
+                    </div>
+                </div>
+                <h3>Location: Raysan, Gandhinagar</h3><br>
+            </div>
+            <div id="KrishnaHostel">
+                <img src="Krishna1.jpg" style="width: 360px; height: 300px;"><br><br>
+                <button type="button" id="Krishnabtn">Krishna Kunj Hostel</button>
+                <div id="KrishnaDetails">
+                    <h1>These are details of Krishna Kunj Hostel</h1>
+                    <img class="Krishna1" src="Krishna1.jpg">
+                    <img class="Krishna1" src="Krishna2.jpeg">
+                    <img class="Krishna1" src="Krishna3.jpg">
+                    <h3>Available for: Boys</h3>
+                    <h3>Address: 45, Old Palasia Main Road, Ravindra Nagar, Indore, Madhya Pradesh 452018</h3>
+                    <h3>Price: Rs.7000/- per month</h3>
+                    <p>
+                        <i class="bi bi-wifi" style="font-size: 1.2em; color: #007bff;"></i> Wi-Fi &nbsp;
+                        <i class="bi bi-snow" style="font-size: 1.2em; color: #007bff;"></i> AC &nbsp;
+                        <i class="bi bi-cup-straw" style="font-size: 1.2em; color: #007bff;"></i> Food
+                    </p>
+                    <button type="button" class="interested_button" onclick="showInterested('Krishna')">Interested</button>
+                    <button type="button" class="register_button" onclick="book_room()">Register</button>
+                    <div class="interested_list" id="KrishnaInterested" style="display:none;background-color: white; margin:10px; padding:10px;">
+                        <h4>Students Interested:</h4>
+                        <ul>
+                            <li>Name: Rohan Patel, Username: Rohanpatel, Phone: +913434343434</li>
+                            <li>Name: Shivaay Parikh, Username: Shivaayparikh, Phone: +912323232323</li>
+                        </ul>
+                    </div>
+                </div>
+                <h3>Location: Palasia, Indore</h3><br>
+            </div>
+            <div id="NamasteHostel">
+                <img src="Namaste1.jpg" style="width: 360px; height: 300px;"><br><br>
+                <button type="button" id="Namastebtn">Namaste Mumbai Hostel</button>
+                <div id="NamasteDetails">
+                    <h1>These are details of Namaste Mumbai Hostel</h1>
+                    <img class="Namaste1" src="Namaste1.jpg">
+                    <img class="Namaste1" src="Namaste2.jpeg">
+                    <img class="Namaste1" src="Namaste3.jpg">
+                    <h3>Available for: Boys</h3>
+                    <h3>Address: Panjwani Cottage, 76, Pali Village, Pali Mala Rd, Behind Janta bar, Bandra West, Mumbai, Maharashtra 400050</h3>
+                    <h3>Price: Rs.4000/- per month</h3>
+                    <p>
+                        <i class="bi bi-wifi" style="font-size: 1.2em; color: #007bff;"></i> Wi-Fi &nbsp;
+                        <i class="bi bi-cup-straw" style="font-size: 1.2em; color: #007bff;"></i> Food
+                    </p>
+                    <button type="button" class="interested_button" onclick="showInterested('Namaste')">Interested</button>
+                    <button type="button" class="register_button" onclick="book_room()">Register</button>
+                    <div class="interested_list" id="NamasteInterested" style="display:none;background-color: white; margin:10px; padding:10px;">
+                        <h4>Students Interested:</h4>
+                        <ul>
+                            <li>Name: Kavish Shah, Username: Kavishshah, Phone: +918484848484</li>
+                            <li>Name: Dev Patel, Username: Devpatel, Phone: +919393939393</li>
+                        </ul>
+                    </div>
+                </div>
+                <h3>Location: Bandra, Mumbai</h3><br>
+            </div>
+            <div id="BLHostel">
+                <img src="BL1.jpg" style="width: 360px; height: 300px;"><br><br>
+                <button type="button" id="BLbtn">BL Residency Hostel</button>
+                <div id="BLDetails">
+                    <h1>These are details of BL Residency Hostel</h1>
+                    <img class="BL1" src="BL1.jpg">
+                    <img class="BL1" src="BL2.jpg">
+                    <img class="BL1" src="BL3.jpg">
+                    <h3>Available for: Girls, Boys</h3>
+                    <h3>Address: BL Residency Hostel, besides Swaagat Party Plot, Borkhera, Kota, Rajasthan 03421</h3>
+                    <h3>Price: Rs.5500/- per month</h3>
+                    <p>
+                        <i class="bi bi-wifi" style="font-size: 1.2em; color: #007bff;"></i> Wi-Fi &nbsp;
+                        <i class="bi bi-snow" style="font-size: 1.2em; color: #007bff;"></i> AC &nbsp;
+                        <i class="bi bi-cup-straw" style="font-size: 1.2em; color: #007bff;"></i> Food
+                    </p>
+                    <button type="button" class="interested_button" onclick="showInterested('BL')">Interested</button>
+                    <button type="button" class="register_button" onclick="book_room()">Register</button>
+                    <div class="interested_list" id="BLInterested" style="display:none;background-color: white; margin:10px; padding:10px;">
+                        <h4>Students Interested:</h4>
+                        <ul>
+                            <li>Name: Dharm Patel, Username: Dharmpatel, Phone: +918080808080</li>
+                            <li>Name: Neel Patel, Username: Neelpatel, Phone: +919090909090</li>
+                            <li>Name: Om Dave, Username: Omdave, Phone: +917070707070</li>
+                        </ul>
+                    </div>
+                </div>
+                <h3>Location: Borkhera, Kota</h3><br>
+            </div>
+         </div>
+        </div>
+    </form>
+    <script>
+
+        // filter cities based on state
+        function filterCities() {
+            const state=document.getElementById('state').value;
+            const cityDropdown=document.getElementById('city');
+            const cities=cityDropdown.querySelectorAll('option');
+            cityDropdown.value="";
+            document.getElementById('area').value="";
+            cities.forEach(city=>{
+                city.style.display=city.getAttribute('data-state')===state ? "block":"none";
+            });
+        }
+        // filter area based on city
+        function filterAreas(){
+            const city=document.getElementById('city').value;
+            const areaDropdown=document.getElementById('area');
+            const areas=areaDropdown.querySelectorAll('option');
+            areaDropdown.value='';
+            areas.forEach(area=>{
+                area.style.display=area.getAttribute('data-city')===city ? "block":"none";
+            });
+        }
+
+        const searchbtn=document.getElementById('searchbtn');
+        const filterbtn=document.getElementById('filterbtn');
+        const HostelList=document.getElementById('HostelList');
+        const CommonHostelList=document.getElementById('CommonHostelList');
+        searchbtn.addEventListener('click',function(){
+            HostelList.style.display='block';
+        });
+
+        // Show only filtered hostels based on selected area
+        filterbtn.addEventListener('click',function(){
+            const SelectedArea= document.querySelector('.SelectArea');
+            const output = SelectedArea.value;
+            document.getElementById('DarshHostel').style.display='none';
+            document.getElementById('JMDHostel').style.display='none';
+            document.getElementById('KrishnaHostel').style.display='none';
+            document.getElementById('NamasteHostel').style.display='none';
+            document.getElementById('BLHostel').style.display='none';
+            if (output==='Raysan') {
+                document.getElementById('DarshHostel').style.display='block';
+                document.getElementById('JMDHostel').style.display='block';
+            }
+            else if (output=='Palasia') {
+                document.getElementById('KrishnaHostel').style.display='block';
+            }
+            else if (output=='Bandra') {
+                document.getElementById('NamasteHostel').style.display='block';
+            }
+            else if (output=='Borkhera') {
+                document.getElementById('BLHostel').style.display='block';
+            }
+            else if (output==='Select Area'){
+                document.getElementById('CommonHostelList').style.display='block';
+            }
+        });
+
+        // Show interested students list
+        function showInterested(hostel) {
+            const interestedList = document.getElementById(hostel + 'Interested');
+            interestedList.style.display = interestedList.style.display === 'none' ? 'block' : 'none';
+        }
+
+        // Display descriptive details only when button is clicked
+        document.getElementById('Darshbtn').addEventListener('click', function() {
+            const details = document.getElementById('DarshDetails');
+            details.style.display = details.style.display === 'none' ? 'block' : 'none';
+        });
+        document.getElementById('JMDbtn').addEventListener('click', function() {
+            const details = document.getElementById('JMDDetails');
+            details.style.display = details.style.display === 'none' ? 'block' : 'none';
+        });
+        document.getElementById('Krishnabtn').addEventListener('click', function() {
+            const details = document.getElementById('KrishnaDetails');
+            details.style.display = details.style.display === 'none' ? 'block' : 'none';
+        });
+        document.getElementById('Namastebtn').addEventListener('click', function() {
+            const details = document.getElementById('NamasteDetails');
+            details.style.display = details.style.display === 'none' ? 'block' : 'none';
+        });
+        document.getElementById('BLbtn').addEventListener('click', function() {
+            const details = document.getElementById('BLDetails');
+            details.style.display = details.style.display === 'none' ? 'block' : 'none';
+        });
+
+        function book_room(){
+            window.location.href='Registration_keni.html';
+        }
+    </script>
+    </body>
+</html>

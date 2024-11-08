@@ -1,0 +1,43 @@
+#HostelList {
+    display: none;
+}
+#DarshDetails, #JMDDetails, #KrishnaDetails,#NamasteDetails,#BLDetails {
+    display: none;
+    background-color:rgb(255, 235, 208);
+    padding: 10px;
+    margin: 10px;
+}
+.Darsh1, .JMD1, .Krishna1, .Namaste1, .BL1{
+    display: inline-flex;
+    height:200px;
+    width:200px;
+}
+.interested_button, .register_button {
+    background-color: rgb(196, 217, 255);
+    padding: 5px;
+    border-radius: 5px;
+}
+.interested_button:hover , .register_button:hover{
+    background-color: rgb(73, 198, 73);
+}
+#state, #city, #area {
+    width: 200px;
+    margin: 5px;
+    padding: 8px;
+    font-size: 14px;
+}
+
+html {
+    font-size: 90%; 
+}
+
+.btn {
+    margin-top: 10px;
+}
+
+.interested_list {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}

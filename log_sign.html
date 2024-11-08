@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Signin</title>
+    <link href="stylelogin.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="home-link">Home</a>
+        <label class="toggle-option">
+            <input type="checkbox" id="login" name="login" value="login" onclick="toggle()">
+            Login
+        </label>
+        <label class="toggle-option">
+            <input type="checkbox" id="signin" name="signin" value="signin" onclick="toggle()">
+            Signin
+        </label>
+    </header>
+
+    <div class="loginpage" id="loginpage">
+        <form onsubmit="event.preventDefault(); authentication();">
+            <label for="loginUsername">Username:</label>
+            <input type="text" id="loginUsername"><br><br>
+            <label for="loginEmail">Gmail:</label>
+            <input type="text" id="loginEmail"><br><br>
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword"><br><br>
+            <button type="submit" style="background-color: rgb(91, 176, 255); border-radius: 10%; padding-left:30px; padding-right: 30px; padding-top: 5px; padding-bottom: 5px;">Submit</button>
+        </form>
+    </div>
+    <p id="demo"></p>
+
+    <div class="signinpage" id="signinpage">
+        <form onsubmit="event.preventDefault(); registerUser()">
+            <label for="regName">Name:</label>
+            <input type="text" id="regName" required><br><br>
+            <label for="regUsername">Username:</label>
+            <input type="text" id="regUsername" required><br><br>
+            <label for="regEmail">Gmail:</label>
+            <input type="text" id="regEmail" required><br><br>
+            <label for="regAge">Age:</label>
+            <input type="integer" id="regAge" required><br><br>
+            <label for="regPhone">Phone number:</label>
+            <input type="tel" id="regPhone" pattern="+91[0-9]{10}" required><br><br>
+            <label for="regPassword">Password</label>
+            <input type="password" id="regPassword" for="password" name="password" id="password" required><br><br>
+            <button type="submit" style="background-color: rgb(91, 176, 255); border-radius: 10%; padding-left:30px; padding-right: 30px; padding-top: 5px; padding-bottom: 5px;">Submit</button>
+        </form>
+    </div>
+    <p id="demos"></p>
+    <script>
+        let users=[
+            {
+                name:"Niya Patel",
+                username:"Niyapatel",
+                email:"niyapatel@gmail.com",
+                phone:"+918585858585",
+                age:20,
+                password:"Niya12"
+            },
+            {
+                name:"Honey Patel",
+                username:"Honeypatel",
+                email:"honeypatel@gmail.com",
+                phone:"+914242424242",
+                age:19,
+                password:"Honey12"
+            },
+            {
+                name:"Keni Tandel",
+                username:"Kenitandel",
+                email:"kenitandel@gmail.com",
+                phone:"+919292929292",
+                age:19,
+                password:"Keni12"
+            }
+        ];
+        function toggle(){
+            const logincheck=document.getElementById("login");
+            const signincheck=document.getElementById("signin");
+            if (logincheck.checked && !signincheck.checked){
+                document.getElementById("loginpage").style.display="block";
+                document.getElementById("signinpage").style.display="none";
+            }
+            else if (!logincheck.checked && signincheck.checked){
+                document.getElementById("signinpage").style.display="block";
+                document.getElementById("loginpage").style.display="none";
+            }
+            else {
+                document.getElementById("loginpage").style.display="none";
+                document.getElementById("signinpage").style.display="none";
+            }
+        }
+        function authentication(){
+            const username=document.getElementById("loginUsername").value;
+            const password=document.getElementById("loginPassword").value;
+            const email=document.getElementById("loginEmail").value;
+            const user=users.find(user=>user.username===username && user.email===email && user.password===password);
+            if (user){
+                window.location.href="index.html"
+            }
+            else{
+                document.getElementById("demo").innerHTML="Invalid username or password";
+            }
+        }
+        function registerUser(){
+            const name = document.getElementById("regName").value;
+            const username = document.getElementById("regUsername").value;
+            const email = document.getElementById("regEmail").value;
+            const phone = document.getElementById("regPhone").value;
+            const age = document.getElementById("regAge").value;
+            const password = document.getElementById("regPassword").value;
+            if (name && username && email && age && phone && password) {
+                const newUser={
+                    name:name,
+                    username:username,
+                    email:email,
+                    phone:phone,
+                    age:age,
+                    password:password
+                };
+                users.push(newUser);
+                window.location.href="index.html";
+            }
+            else {
+                document.getElementById("demo").innerHTML="Invalid details.";
+            }
+        }
+    </script>
+</body>
+</html>
